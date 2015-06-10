@@ -2,7 +2,12 @@
 
 SET(KIT Ultrasound)
 SET(UKIT ULTRASOUND)
-SET(KIT_LIBS vtkHybrid vtkAtamaiTracking)
+
+if(VTK_LIBRARIES)
+  SET(KIT_LIBS vtkAtamaiTracking ${VTK_LIBRARIES})
+else()
+  SET(KIT_LIBS vtkHybrid vtkAtamaiTracking)
+endif()
 
 IF(VTK_MAJOR_VERSION LESS 5)
   SET(Kit_SRCS ${Kit_SRCS}
