@@ -2,7 +2,11 @@ PROJECT(TRACKING)
 
 SET(KIT Tracking)
 SET(UKIT TRACKING)
-SET(KIT_LIBS vtkHybrid vtkParallel)
+if(VTK_LIBRARIES)
+  SET(KIT_LIBS ${VTK_LIBRARIES})
+else()
+  SET(KIT_LIBS vtkHybrid vtkParallel)
+endif()
 SET(KIT_EXTRA_LIBS)
 
 SET ( Kit_HDRS
